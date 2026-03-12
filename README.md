@@ -28,7 +28,7 @@ claude plugin validate ./skills/mi-v3
 ```
 
 ```bash
-python3 scripts/build_mi_sheet.py workspace/<deal-slug>
+python3 build_mi_sheet.py workspace/<deal-slug>
 ```
 
 ## Layout

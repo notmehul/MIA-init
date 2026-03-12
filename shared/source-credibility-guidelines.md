@@ -50,9 +50,8 @@ Every web source used in MI v3 must be preserved in `sources.json` with:
 - full URL
 - publisher
 - title
-- tier
-- source type
-- access date
+- tier (1-3)
+- date_accessed
 
 Do not drop URLs after copying the human-readable citation into a table cell.
 
@@ -62,11 +61,11 @@ Before creating a new source entry:
 
 1. Check whether the same URL already exists in `sources.json`.
 2. Reuse the existing `src_NNN` ID when it does.
-3. Append the new row usage to `used_by`.
+3. Append the current skill name to `used_by_skills`.
 
 ## Citation Format
 
-Visible source cells use the same human-readable format as MI v2:
+Visible source cells use this human-readable format:
 
 - `(Source) - [Publisher/Document Name]`
 - `Calculated field`

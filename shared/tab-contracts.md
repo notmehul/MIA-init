@@ -3,22 +3,20 @@
 # Source of truth: `sources/templates/Biome_ Market Intelligence Template.pdf`
 # (extracted via `pdftotext -layout`).
 #
-# Purpose: keep MI v2 outputs paste-ready and consistent across reruns.
+# Purpose: keep MI v3 outputs consistent with the Biome template across reruns.
 #
-# Important conventions (MI v2):
+# Important conventions:
 # - Leave unknown data cells blank. Do not use "N/A", "-", or "--".
-#   Use `Unknown` only when a skill explicitly defines it as an allowed categorical value.
 # - Add an `Agent Notes` column as the LAST column in every table and keep it blank
 #   unless you need to flag something that requires analyst attention.
 # - When a tab exists in the Biome template, match the template's column headers
 #   exactly, then append `Agent Notes` (even if the template doesn't show it).
 #
-# Tabs not listed here are MI v2-only tabs (e.g., `MI: Trends`) and their contracts
-# live in their respective skill specs.
+# MI-only tabs (e.g., `MI: Trends`) define their own headers in their SKILL.md files.
 
 ## Pre-Requisites (Template Tab)
 
-Template (PDF page 1) is a checklist-style section. MI v2 renders it as a table.
+Template (PDF page 1) is a checklist-style section, rendered as a table.
 
 Recommended columns (match first two, append rest):
 
@@ -41,7 +39,7 @@ Also include a short "Target Customer (s) Buckets" list above the table.
 ## Top Down (Template Tab)
 
 Template (PDF page 6) shows example "Credible Analysts" numbers and geography splits.
-The template is less strict than other tabs; MI v2 uses two tables:
+The template is less strict than other tabs; MI v3 uses two tables:
 
 1) Credible Analyst Numbers:
 

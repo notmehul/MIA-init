@@ -1,8 +1,7 @@
 ---
 name: mi-runner
 description: Orchestrate MI v3 through workspace initialization, phased skill execution, source-registry-safe parallel groups, and incremental workbook builds.
-disable-model-invocation: true
-allowed-tools: Read, Grep, Glob, Edit, Bash
+allowed-tools: Read, Write, Grep, Glob, Edit, Bash
 ---
 
 # Skill: MI Runner
@@ -17,7 +16,7 @@ Run MI v3 as a phased workspace workflow. The deliverable is the workbook produc
 
 1. Run `deal-context-builder` in the main context.
 2. Run `value-chain-mapper` unless the analyst explicitly skips it.
-3. Run `python3 scripts/build_mi_sheet.py workspace/{deal-slug}`.
+3. Run `python3 build_mi_sheet.py workspace/{deal-slug}`.
 
 ### Phase 2: Size
 
@@ -45,7 +44,7 @@ Run MI v3 as a phased workspace workflow. The deliverable is the workbook produc
 - After every completed skill, update `meta.json`.
 - When running a parallel group, do not let multiple skills write the main `sources.json` at the same time.
   - Give each parallel skill a temporary registry path such as `sources.trends.json`.
-  - Merge those registries back into `sources.json` by URL, merge `used_by`, and recalculate `next_id`.
+  - Merge those registries back into `sources.json` by URL, combining `used_by_skills` arrays.
 - Skip missing or analyst-rejected phases cleanly.
 
 ## Completion Summary
@@ -58,9 +57,3 @@ At the end, report:
 - all warnings aggregated from `Agent Notes`
 - all open questions from `deal-context.json`
 
-## References
-
-- `../../shared/workspace-spec.md`
-- `../../shared/output-format-spec.md`
-- `../../shared/source-credibility-guidelines.md`
-- `../../shared/constraints.md`

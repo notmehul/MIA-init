@@ -4,15 +4,14 @@ These conventions apply to all MI v3 skills.
 
 ## Primary Output Target
 
-MI v3 writes structured JSON into the deal workspace. The final analyst deliverable is an xlsx workbook assembled by `scripts/build_mi_sheet.py`.
+MI v3 writes structured JSON into the deal workspace. The final analyst deliverable is an xlsx workbook assembled by `build_mi_sheet.py`.
 
 ## Output Model
 
 Each skill produces:
 
-1. One workspace JSON file using the common envelope from `workspace-spec.md`
+1. One workspace JSON file using the envelope from `workspace-spec.md`
 2. Source references that point into `sources.json`
-3. Optional top-level skill-specific fields when the skill needs extra structure
 
 ## Tables
 
@@ -45,12 +44,6 @@ The hyperlink comes from `source_refs`, not from the visible cell text.
 - a material inference was required
 - the analyst must verify something before trusting the row
 
-Format:
-
-```text
-⚠ Concise note here.
-```
-
 ## Tab Naming
 
 Use the Biome template tab names where they exist:
@@ -69,21 +62,8 @@ Use `MI: ...` for MI-only tabs:
 - `MI: Whale Watch`
 - `MI: Anti-Feku`
 
-The workbook builder normalizes Excel-invalid characters when it creates `.xlsx` sheets.
-For example, `MI: Value Chain` becomes `MI - Value Chain` in the workbook file.
-
 ## Determinism
 
 - Sort rows using explicit, skill-specific ordering rules.
 - Prefer the most credible source first when multiple sources support the same metric.
 - Keep section ordering stable across reruns.
-
-## Quality Checklist
-
-Before finalizing a skill output:
-
-- The JSON matches the common envelope.
-- Table headers match the relevant tab contract.
-- Every sourced row has valid `source_refs`.
-- `Agent Notes` is blank unless a real flag exists.
-- Skill-specific extra fields are consistent with the written tables and sections.

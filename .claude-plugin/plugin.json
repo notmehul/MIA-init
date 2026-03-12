@@ -1,0 +1,8 @@
+{
+  "name": "biome-mi-v3",
+  "version": "3.0.0",
+  "description": "Biome Market Intelligence v3 plugin with workspace-based JSON outputs, source URL tracking, and workbook assembly.",
+  "author": {
+    "name": "Mehul Srivastava"
+  }
+}
